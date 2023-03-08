@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ini form</title>
+</head>
+<style>
+    #listBarang {
+        display: grid;
+        width: fit-content;
+    }
+</style>
+
+<body>
+    <form action="result.html" method="GET">
+        <section id="listBarang">
+            <h1>Formulir Barang</h1>
+            <label id="labelnama">Nama</label>
+            <input name="Nama Customer" type="text" id="inputnama">
+            <label id="barang">Pilih Item</label>
+            <select name="Item yang dipilih" id="opsibarang">
+                <option value="Baju">Baju</option>
+                <option value="Celana">Celana</option>
+                <option value="Sepatu">Sepatu</option>
+            </select>
+            <input name="Jumlah item" type="number" id="jumlah" min="0" placeholder="jumlah">
+            <label id="ukuran">Ukuran</label>
+            <select name="Ukuran" id="opsiukuran">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+        </section>
+        <button type="submit">kirim</button>
+    </form>
+    
+    <button onclick="tambah()">Tambah item</button>
+</body>
+<script>
+    function tambah() {
+        const itemBaru = document.createElement('label')
+        const labelBaru = document.createTextNode('Pilih Item')
+        itemBaru.appendChild(labelBaru)
+        const sctA = document.getElementById('listBarang')
+        sctA.appendChild(itemBaru)
+
+        const itemBaru3 = document.createElement('select')
+        sctA.appendChild(itemBaru3)
+        itemBaru3.setAttribute('name', 'Item yang dipilih')
+
+        function plus(text, value) {
+            const opsiBaru = document.createElement('option')
+            opsiBaru.text = text
+            opsiBaru.value = value
+            return opsiBaru
+        }
+        const ops = plus('Baju', 'Baju')
+        itemBaru3.appendChild(ops)
+        const ops2 = plus('Celana', 'Celana')
+        itemBaru3.appendChild(ops2)
+        const ops3 = plus('Sepatu', 'Sepatu')
+        itemBaru3.appendChild(ops3)
+
+        const itemBaru4 = document.createElement('input')
+        sctA.appendChild(itemBaru4)
+        itemBaru4.setAttribute('type', 'number')
+        itemBaru4.setAttribute('min', '0')
+        itemBaru4.setAttribute('placeholder', 'jumlah')
+        itemBaru4.setAttribute('name','Jumlah Item' )
+
+        const itemBaru2 = document.createElement('label')
+        const labelBaru2 = document.createTextNode('Ukuran')
+        itemBaru2.appendChild(labelBaru2)
+        sctA.appendChild(itemBaru2)
+
+        const itemBaru5 = document.createElement('select')
+        sctA.appendChild(itemBaru5)
+        function plus(text, value) {
+            const opsiBaru = document.createElement('option')
+            opsiBaru.text = text
+            opsiBaru.value = value
+            return opsiBaru
+        }
+        const opsukr = plus('S', 'S')
+        itemBaru5.appendChild(opsukr)
+        const opsukr2 = plus('M', 'M')
+        itemBaru5.appendChild(opsukr2)
+        const opsukr3 = plus('L', 'L')
+        itemBaru5.appendChild(opsukr3)
+        itemBaru5.setAttribute('name', 'Ukuran')
+    }
+     
+</script>
+
+</html>
